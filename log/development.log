@@ -9244,3 +9244,67 @@ Processing by CarsController#index as HTML
 Completed 200 OK in 885ms (Views: 884.5ms | ActiveRecord: 0.6ms | Allocations: 2933)
 
 
+Started GET "/cars/1" for ::1 at 2023-10-19 18:46:11 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPhoto Load (0.7ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."car_id" = ?[0m  [["car_id", 1]]
+[active_model_serializers]   ↳ app/serializers/car_serializer.rb:6:in `map'
+[active_model_serializers] Rendered CarSerializer with ActiveModelSerializers::Adapter::Attributes (21.45ms)
+Completed 200 OK in 112ms (Views: 21.4ms | ActiveRecord: 35.1ms | Allocations: 1563)
+
+
+Started GET "/cars" for ::1 at 2023-10-19 18:46:22 +0300
+Processing by CarsController#index as HTML
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/cars_controller.rb:5:in `index'
+  [1m[36mPhoto Load (0.8ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."car_id" IN (?, ?, ?, ?, ?)[0m  [["car_id", 1], ["car_id", 2], ["car_id", 3], ["car_id", 4], ["car_id", 5]]
+  ↳ app/controllers/cars_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (18.21ms)
+Completed 200 OK in 90ms (Views: 88.2ms | ActiveRecord: 1.2ms | Allocations: 2970)
+
+
+Started GET "/cars/1" for ::1 at 2023-10-19 18:46:25 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCar Load (9.7ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPhoto Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."car_id" = ?[0m  [["car_id", 1]]
+[active_model_serializers]   ↳ app/serializers/car_serializer.rb:6:in `map'
+[active_model_serializers] Rendered CarSerializer with ActiveModelSerializers::Adapter::Attributes (1.93ms)
+Completed 200 OK in 15ms (Views: 3.4ms | ActiveRecord: 9.8ms | Allocations: 1386)
+
+
+Started GET "/cars" for ::1 at 2023-10-19 18:48:38 +0300
+Processing by CarsController#index as HTML
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/cars_controller.rb:5:in `index'
+  [1m[36mPhoto Load (0.8ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."car_id" IN (?, ?, ?, ?, ?)[0m  [["car_id", 1], ["car_id", 2], ["car_id", 3], ["car_id", 4], ["car_id", 5]]
+  ↳ app/controllers/cars_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (84.83ms)
+Completed 200 OK in 632ms (Views: 630.4ms | ActiveRecord: 1.2ms | Allocations: 2931)
+
+
+Started GET "/cars/2" for ::1 at 2023-10-19 18:48:57 +0300
+Processing by CarsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cars_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."car_id" = ?[0m  [["car_id", 2]]
+[active_model_serializers]   ↳ app/serializers/car_serializer.rb:6:in `map'
+[active_model_serializers] Rendered CarSerializer with ActiveModelSerializers::Adapter::Attributes (45.69ms)
+Completed 200 OK in 48ms (Views: 46.2ms | ActiveRecord: 0.3ms | Allocations: 1386)
+
+
+Started GET "/cars" for 127.0.0.1 at 2023-10-19 18:52:10 +0300
+Processing by CarsController#index as */*
+  Parameters: {"name"=>"Kelvin", "model"=>"cx-5", "year"=>"2017", "cc"=>"2000", "transmision"=>"automatic", "fuel"=>"petrol", "mileage"=>"10000", "price"=>"3000000", "email"=>"kevin@gmail.com", "password"=>"[FILTERED]", "car"=>{"model"=>"cx-5", "year"=>"2017"}}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/cars_controller.rb:5:in `index'
+  [1m[36mPhoto Load (9.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."car_id" IN (?, ?, ?, ?, ?)[0m  [["car_id", 1], ["car_id", 2], ["car_id", 3], ["car_id", 4], ["car_id", 5]]
+  ↳ app/controllers/cars_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (9.04ms)
+Completed 200 OK in 86ms (Views: 76.1ms | ActiveRecord: 9.3ms | Allocations: 2934)
+
+
