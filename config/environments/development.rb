@@ -53,17 +53,6 @@ Rails.application.configure do
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 
-  Rails.application.config.middleware.insert_before 0, Rack::Cors do
-    allow do
-      origins "https://car-nation.vercel.app"
-  
-      resource "*",
-        headers: :any,
-        methods: [:get, :post, :put, :patch, :delete, :options, :head]
-    end
-  end
-  
-
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
