@@ -9308,3 +9308,57 @@ Processing by CarsController#index as */*
 Completed 200 OK in 86ms (Views: 76.1ms | ActiveRecord: 9.3ms | Allocations: 2934)
 
 
+  [1m[35m (727.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (182.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5298114672339481020)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCars (20231018100436)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (811.2ms)[0m  [1m[35mCREATE TABLE "cars" ("id" bigserial primary key, "make" character varying, "model" character varying, "year" integer, "profile_image" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20231018100436"]]
+  [1m[36mTRANSACTION (24.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePhotos (20231018100852)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (238.2ms)[0m  [1m[35mCREATE TABLE "photos" ("id" bigserial primary key, "car_id" bigint NOT NULL, "image" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_dace6a373c"
+FOREIGN KEY ("car_id")
+  REFERENCES "cars" ("id")
+)[0m
+  [1m[35m (43.0ms)[0m  [1m[35mCREATE INDEX "index_photos_on_car_id" ON "photos" ("car_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20231018100852"]]
+  [1m[36mTRANSACTION (30.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAvailabilityToCars (20231019144752)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "cars" ADD "availability" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20231019144752"]]
+  [1m[36mTRANSACTION (37.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (25.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-10-23 13:14:41.284544"], ["updated_at", "2023-10-23 13:14:41.284544"]]
+  [1m[36mTRANSACTION (34.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5298114672339481020)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cars" for 127.0.0.1 at 2023-10-23 16:24:22 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CarsController#index as */*
+  Parameters: {"name"=>"Kelvin", "model"=>"cx-5", "year"=>"2017", "cc"=>"2000", "transmision"=>"automatic", "fuel"=>"petrol", "mileage"=>"10000", "price"=>"3000000", "email"=>"kevin@gmail.com", "password"=>"[FILTERED]", "car"=>{"model"=>"cx-5", "year"=>"2017"}}
+  [1m[36mCar Load (0.7ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/cars_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.18ms)
+Completed 200 OK in 185ms (Views: 78.8ms | ActiveRecord: 3.7ms | Allocations: 22358)
+
+
+Started POST "/cars" for 127.0.0.1 at 2023-10-23 16:25:04 +0300
+Processing by CarsController#create as */*
+  Parameters: {"make"=>"RX", "model"=>"Lexus", "year"=>2020, "availability"=>"sold", "profile_image"=>"https://carnationautomart.com/storage/images/6G0V4sASt0mHEQIv8KeYtH7LIRX4bQS1AHvjq0hS.jpg", "photos"=>["https://carnationautomart.com/storage/images/o6J5u9GEia4xvAmp4BbViS00fz5397eVNlWUx2O0.jpg", "https://carnationautomart.com/storage/images/RCn5Ur0XG4HOpYFHJEzFFrROBuGlihDzDhWQDFXq.jpg", "https://carnationautomart.com/storage/images/I2RyyaqItw2u1w8syQP4EVk3bqHNyk0esXOnitVD.jpg", "https://carnationautomart.com/storage/images/ZMROa4HidfH6eny8UYsbmMOw8Oi7OSNXtl81RHKD.jpg"], "car"=>{"make"=>"RX", "model"=>"Lexus", "year"=>2020, "profile_image"=>"https://carnationautomart.com/storage/images/6G0V4sASt0mHEQIv8KeYtH7LIRX4bQS1AHvjq0hS.jpg", "availability"=>"sold"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cars_controller.rb:22:in `create'
+  [1m[36mCar Create (0.9ms)[0m  [1m[32mINSERT INTO "cars" ("make", "model", "year", "profile_image", "created_at", "updated_at", "availability") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["make", "RX"], ["model", "Lexus"], ["year", 2020], ["profile_image", "https://carnationautomart.com/storage/images/6G0V4sASt0mHEQIv8KeYtH7LIRX4bQS1AHvjq0hS.jpg"], ["created_at", "2023-10-23 13:25:04.873031"], ["updated_at", "2023-10-23 13:25:04.873031"], ["availability", "sold"]]
+  ↳ app/controllers/cars_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (25.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cars_controller.rb:22:in `create'
+[active_model_serializers]   [1m[36mPhoto Load (0.6ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."car_id" = $1[0m  [["car_id", 1]]
+[active_model_serializers]   ↳ app/serializers/car_serializer.rb:6:in `map'
+[active_model_serializers] Rendered CarSerializer with ActiveModelSerializers::Adapter::Attributes (165.74ms)
+Completed 200 OK in 223ms (Views: 164.3ms | ActiveRecord: 31.3ms | Allocations: 26084)
+
+
