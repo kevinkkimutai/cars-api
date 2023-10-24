@@ -1,10 +1,10 @@
 class CarsController < ApplicationController
     # Index action to list all cars
     def index
-    cars = Car.includes(:photos).all
-    render json: cars, each_serializer: CarSerializer
+      cars = Car.all
+      render json: cars
     end
-  
+    
     # Show action to display a single car and its photos
     def show
       car = Car.find(params[:id])

@@ -9386,3 +9386,646 @@ FOREIGN KEY ("car_id")
   [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-10-23 13:55:12.890083"], ["updated_at", "2023-10-23 13:55:12.890083"]]
   [1m[36mTRANSACTION (91.8ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cars" for 127.0.0.1 at 2023-10-24 15:41:11 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CarsController#index as */*
+  Parameters: {"make"=>"XV", "model"=>"Subaru", "year"=>2017, "availability"=>"sold", "profile_image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg", "photos"=>["https://carnationautomart.com/storage/images/o6J5u9GEia4xvAmp4BbViS00fz5397eVNlWUx2O0.jpg", "https://carnationautomart.com/storage/images/RCn5Ur0XG4HOpYFHJEzFFrROBuGlihDzDhWQDFXq.jpg", "https://carnationautomart.com/storage/images/I2RyyaqItw2u1w8syQP4EVk3bqHNyk0esXOnitVD.jpg", "https://carnationautomart.com/storage/images/ZMROa4HidfH6eny8UYsbmMOw8Oi7OSNXtl81RHKD.jpg"], "car"=>{"make"=>"XV", "model"=>"Subaru", "year"=>2017, "profile_image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg", "availability"=>"sold"}}
+  [1m[36mCar Load (19.8ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/cars_controller.rb:5:in `map'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.22ms)
+Completed 200 OK in 215ms (Views: 59.7ms | ActiveRecord: 20.9ms | Allocations: 21691)
+
+
+Started POST "/cars" for 127.0.0.1 at 2023-10-24 15:41:24 +0300
+Processing by CarsController#create as */*
+  Parameters: {"make"=>"XV", "model"=>"Subaru", "year"=>2017, "availability"=>"sold", "profile_image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg", "photos"=>["https://carnationautomart.com/storage/images/o6J5u9GEia4xvAmp4BbViS00fz5397eVNlWUx2O0.jpg", "https://carnationautomart.com/storage/images/RCn5Ur0XG4HOpYFHJEzFFrROBuGlihDzDhWQDFXq.jpg", "https://carnationautomart.com/storage/images/I2RyyaqItw2u1w8syQP4EVk3bqHNyk0esXOnitVD.jpg", "https://carnationautomart.com/storage/images/ZMROa4HidfH6eny8UYsbmMOw8Oi7OSNXtl81RHKD.jpg"], "car"=>{"make"=>"XV", "model"=>"Subaru", "year"=>2017, "profile_image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg", "availability"=>"sold"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:32:in `create'
+  [1m[36mCar Create (55.9ms)[0m  [1m[32mINSERT INTO "cars" ("make", "model", "year", "profile_image", "availability", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["make", "XV"], ["model", "Subaru"], ["year", 2017], ["profile_image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg"], ["availability", "sold"], ["created_at", "2023-10-24 12:41:24.648310"], ["updated_at", "2023-10-24 12:41:24.648310"]]
+  ↳ app/controllers/cars_controller.rb:32:in `create'
+  [1m[36mTRANSACTION (150.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:32:in `create'
+[active_model_serializers]   [1m[36mPhoto Load (15.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."car_id" = ?[0m  [["car_id", 1]]
+[active_model_serializers]   ↳ app/serializers/car_serializer.rb:6:in `map'
+[active_model_serializers] Rendered CarSerializer with ActiveModelSerializers::Adapter::Attributes (187.2ms)
+Completed 200 OK in 498ms (Views: 211.0ms | ActiveRecord: 222.7ms | Allocations: 26622)
+
+
+Started GET "/cars" for 127.0.0.1 at 2023-10-24 15:41:31 +0300
+Processing by CarsController#index as */*
+  Parameters: {"make"=>"XV", "model"=>"Subaru", "year"=>2017, "availability"=>"sold", "profile_image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg", "photos"=>["https://carnationautomart.com/storage/images/o6J5u9GEia4xvAmp4BbViS00fz5397eVNlWUx2O0.jpg", "https://carnationautomart.com/storage/images/RCn5Ur0XG4HOpYFHJEzFFrROBuGlihDzDhWQDFXq.jpg", "https://carnationautomart.com/storage/images/I2RyyaqItw2u1w8syQP4EVk3bqHNyk0esXOnitVD.jpg", "https://carnationautomart.com/storage/images/ZMROa4HidfH6eny8UYsbmMOw8Oi7OSNXtl81RHKD.jpg"], "car"=>{"make"=>"XV", "model"=>"Subaru", "year"=>2017, "profile_image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg", "availability"=>"sold"}}
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/cars_controller.rb:5:in `map'
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."car_id" = ?[0m  [["car_id", 1]]
+  ↳ app/controllers/cars_controller.rb:5:in `map'
+  [1m[36mPhoto Pluck (0.2ms)[0m  [1m[34mSELECT "image_url" FROM "photos" WHERE "photos"."car_id" = ?[0m  [["car_id", 1]]
+  ↳ app/controllers/cars_controller.rb:12:in `block in index'
+No serializer found for resource: {:make=>"XV", :model=>"Subaru", :year=>2017, :availability=>"sold", :profile_image=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg", :photos=>[]}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.18ms)
+Completed 200 OK in 99ms (Views: 1.1ms | ActiveRecord: 0.6ms | Allocations: 5637)
+
+
+Started POST "/photos" for 127.0.0.1 at 2023-10-24 15:41:52 +0300
+Processing by PhotosController#create as */*
+  Parameters: {"image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg", "car_id"=>1, "photo"=>{"car_id"=>1, "image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mCar Load (0.4ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mPhoto Create (0.4ms)[0m  [1m[32mINSERT INTO "photos" ("car_id", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["car_id", 1], ["image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"], ["created_at", "2023-10-24 12:41:52.430678"], ["updated_at", "2023-10-24 12:41:52.430678"]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (89.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Photo (0.41ms)
+Completed 200 OK in 231ms (Views: 69.2ms | ActiveRecord: 91.2ms | Allocations: 17217)
+
+
+Started GET "/cars" for 127.0.0.1 at 2023-10-24 15:42:08 +0300
+Processing by CarsController#index as */*
+  Parameters: {"image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg", "car_id"=>1, "car"=>{}}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/cars_controller.rb:5:in `map'
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."car_id" = ?[0m  [["car_id", 1]]
+  ↳ app/controllers/cars_controller.rb:5:in `map'
+  [1m[36mPhoto Pluck (0.3ms)[0m  [1m[34mSELECT "image_url" FROM "photos" WHERE "photos"."car_id" = ?[0m  [["car_id", 1]]
+  ↳ app/controllers/cars_controller.rb:12:in `block in index'
+No serializer found for resource: {:make=>"XV", :model=>"Subaru", :year=>2017, :availability=>"sold", :profile_image=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg", :photos=>["image_url"]}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.29ms)
+Completed 200 OK in 9ms (Views: 1.2ms | ActiveRecord: 0.7ms | Allocations: 2093)
+
+
+Started GET "/photos" for 127.0.0.1 at 2023-10-24 15:42:28 +0300
+Processing by PhotosController#index as */*
+  Parameters: {"image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg", "car_id"=>1, "photo"=>{"car_id"=>1, "image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"}}
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+  ↳ app/controllers/photos_controller.rb:5:in `index'
+No serializer found for resource: #<Photo id: 1, car_id: 1, image: "https://dashboard.kaiandkaro.com/media/vehicles/im...", created_at: "2023-10-24 12:41:52.430678000 +0000", updated_at: "2023-10-24 12:41:52.430678000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Photo::ActiveRecord_Relation (0.44ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.2ms | Allocations: 914)
+
+
+Started GET "/cars" for 127.0.0.1 at 2023-10-24 15:42:40 +0300
+Processing by CarsController#index as */*
+  Parameters: {"image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg", "car_id"=>1, "car"=>{}}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/cars_controller.rb:5:in `map'
+  [1m[36mPhoto Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."car_id" = ?[0m  [["car_id", 1]]
+  ↳ app/controllers/cars_controller.rb:5:in `map'
+  [1m[36mPhoto Pluck (0.2ms)[0m  [1m[34mSELECT "image_url" FROM "photos" WHERE "photos"."car_id" = ?[0m  [["car_id", 1]]
+  ↳ app/controllers/cars_controller.rb:12:in `block in index'
+No serializer found for resource: {:make=>"XV", :model=>"Subaru", :year=>2017, :availability=>"sold", :profile_image=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg", :photos=>["image_url"]}
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Array (0.17ms)
+Completed 200 OK in 6ms (Views: 0.9ms | ActiveRecord: 0.5ms | Allocations: 2065)
+
+
+Started GET "/cars" for 127.0.0.1 at 2023-10-24 15:46:32 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{  "image": "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg",
+"car_id": 1
+}
+
+
+
+{
+    "make": "XV",
+    "model": "Subaru",
+    "year": 2017,
+    "availability": "sold",
+    "profile_image": "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg",
+    "photos": [
+      "https://carnationautomart.com/storage/images/o6J5u9GEia4xvAmp4BbViS00fz5397eVNlWUx2O0.jpg",
+      "https://carnationautomart.com/storage/images/RCn5Ur0XG4HOpYFHJEzFFrROBuGlihDzDhWQDFXq.jpg",
+      "https://carnationautomart.com/storage/images/I2RyyaqItw2u1w8syQP4EVk3bqHNyk0esXOnitVD.jpg",
+      "https://carnationautomart.com/storage/images/ZMROa4HidfH6eny8UYsbmMOw8Oi7OSNXtl81RHKD.jpg"
+    ]
+  }
+Processing by CarsController#index as */*
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 2271)
+
+
+  
+NameError (undefined local variable or method `car' for #<CarsController:0x0000000000d480>
+Did you mean?  cars):
+  
+app/controllers/cars_controller.rb:5:in `index'
+Started GET "/cars" for 127.0.0.1 at 2023-10-24 15:47:04 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{  "image": "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg",
+"car_id": 1
+}
+
+
+
+{
+    "make": "XV",
+    "model": "Subaru",
+    "year": 2017,
+    "availability": "sold",
+    "profile_image": "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg",
+    "photos": [
+      "https://carnationautomart.com/storage/images/o6J5u9GEia4xvAmp4BbViS00fz5397eVNlWUx2O0.jpg",
+      "https://carnationautomart.com/storage/images/RCn5Ur0XG4HOpYFHJEzFFrROBuGlihDzDhWQDFXq.jpg",
+      "https://carnationautomart.com/storage/images/I2RyyaqItw2u1w8syQP4EVk3bqHNyk0esXOnitVD.jpg",
+      "https://carnationautomart.com/storage/images/ZMROa4HidfH6eny8UYsbmMOw8Oi7OSNXtl81RHKD.jpg"
+    ]
+  }
+Processing by CarsController#index as */*
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 1857)
+
+
+  
+NameError (uninitialized constant CarsController::Cars):
+  
+app/controllers/cars_controller.rb:4:in `index'
+Started GET "/cars" for 127.0.0.1 at 2023-10-24 15:47:29 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{  "image": "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg",
+"car_id": 1
+}
+
+
+
+{
+    "make": "XV",
+    "model": "Subaru",
+    "year": 2017,
+    "availability": "sold",
+    "profile_image": "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg",
+    "photos": [
+      "https://carnationautomart.com/storage/images/o6J5u9GEia4xvAmp4BbViS00fz5397eVNlWUx2O0.jpg",
+      "https://carnationautomart.com/storage/images/RCn5Ur0XG4HOpYFHJEzFFrROBuGlihDzDhWQDFXq.jpg",
+      "https://carnationautomart.com/storage/images/I2RyyaqItw2u1w8syQP4EVk3bqHNyk0esXOnitVD.jpg",
+      "https://carnationautomart.com/storage/images/ZMROa4HidfH6eny8UYsbmMOw8Oi7OSNXtl81RHKD.jpg"
+    ]
+  }
+Processing by CarsController#index as */*
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 1856)
+
+
+  
+NameError (uninitialized constant CarsController::Cars):
+  
+app/controllers/cars_controller.rb:4:in `index'
+Started GET "/cars" for 127.0.0.1 at 2023-10-24 15:48:03 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{  "image": "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg",
+"car_id": 1
+}
+
+
+
+{
+    "make": "XV",
+    "model": "Subaru",
+    "year": 2017,
+    "availability": "sold",
+    "profile_image": "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg",
+    "photos": [
+      "https://carnationautomart.com/storage/images/o6J5u9GEia4xvAmp4BbViS00fz5397eVNlWUx2O0.jpg",
+      "https://carnationautomart.com/storage/images/RCn5Ur0XG4HOpYFHJEzFFrROBuGlihDzDhWQDFXq.jpg",
+      "https://carnationautomart.com/storage/images/I2RyyaqItw2u1w8syQP4EVk3bqHNyk0esXOnitVD.jpg",
+      "https://carnationautomart.com/storage/images/ZMROa4HidfH6eny8UYsbmMOw8Oi7OSNXtl81RHKD.jpg"
+    ]
+  }
+Processing by CarsController#index as */*
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/cars_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."car_id" = ?[0m  [["car_id", 1]]
+[active_model_serializers]   ↳ app/serializers/car_serializer.rb:6:in `map'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (10.52ms)
+Completed 200 OK in 22ms (Views: 18.4ms | ActiveRecord: 2.4ms | Allocations: 7197)
+
+
+Started GET "/cars" for 127.0.0.1 at 2023-10-24 15:48:41 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{  "image": "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg",
+"car_id": 1
+}
+
+
+
+{
+    "make": "XV",
+    "model": "Subaru",
+    "year": 2017,
+    "availability": "sold",
+    "profile_image": "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg",
+    "photos": [
+      "https://carnationautomart.com/storage/images/o6J5u9GEia4xvAmp4BbViS00fz5397eVNlWUx2O0.jpg",
+      "https://carnationautomart.com/storage/images/RCn5Ur0XG4HOpYFHJEzFFrROBuGlihDzDhWQDFXq.jpg",
+      "https://carnationautomart.com/storage/images/I2RyyaqItw2u1w8syQP4EVk3bqHNyk0esXOnitVD.jpg",
+      "https://carnationautomart.com/storage/images/ZMROa4HidfH6eny8UYsbmMOw8Oi7OSNXtl81RHKD.jpg"
+    ]
+  }
+Processing by CarsController#index as */*
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/cars_controller.rb:5:in `index'
+No serializer found for resource: #<Car id: 1, make: "XV", model: "Subaru", year: 2017, profile_image: "https://dashboard.kaiandkaro.com/media/vehicles/im...", availability: "sold", created_at: "2023-10-24 12:41:24.648310000 +0000", updated_at: "2023-10-24 12:41:24.648310000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Car::ActiveRecord_Relation (35.52ms)
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 1.4ms | Allocations: 7084)
+
+
+  
+NameError (undefined local variable or method `profile_image_url' for #<Car:0x00007f62b0176000>
+Did you mean?  profile_image
+               profile_image?
+               profile_image=
+               profile_image_was):
+  
+app/models/car.rb:10:in `as_json'
+app/controllers/cars_controller.rb:5:in `index'
+Started GET "/cars" for 127.0.0.1 at 2023-10-24 15:48:47 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{  "image": "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg",
+"car_id": 1
+}
+
+
+
+{
+    "make": "XV",
+    "model": "Subaru",
+    "year": 2017,
+    "availability": "sold",
+    "profile_image": "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg",
+    "photos": [
+      "https://carnationautomart.com/storage/images/o6J5u9GEia4xvAmp4BbViS00fz5397eVNlWUx2O0.jpg",
+      "https://carnationautomart.com/storage/images/RCn5Ur0XG4HOpYFHJEzFFrROBuGlihDzDhWQDFXq.jpg",
+      "https://carnationautomart.com/storage/images/I2RyyaqItw2u1w8syQP4EVk3bqHNyk0esXOnitVD.jpg",
+      "https://carnationautomart.com/storage/images/ZMROa4HidfH6eny8UYsbmMOw8Oi7OSNXtl81RHKD.jpg"
+    ]
+  }
+Processing by CarsController#index as */*
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/cars_controller.rb:5:in `index'
+No serializer found for resource: #<Car id: 1, make: "XV", model: "Subaru", year: 2017, profile_image: "https://dashboard.kaiandkaro.com/media/vehicles/im...", availability: "sold", created_at: "2023-10-24 12:41:24.648310000 +0000", updated_at: "2023-10-24 12:41:24.648310000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Car::ActiveRecord_Relation (35.47ms)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.2ms | Allocations: 4521)
+
+
+  
+NameError (undefined local variable or method `profile_image_url' for #<Car:0x00007f62c87e5658>
+Did you mean?  profile_image
+               profile_image?
+               profile_image=
+               profile_image_was):
+  
+app/models/car.rb:10:in `as_json'
+app/controllers/cars_controller.rb:5:in `index'
+Started GET "/cars" for 127.0.0.1 at 2023-10-24 15:49:23 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{  "image": "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg",
+"car_id": 1
+}
+
+
+
+{
+    "make": "XV",
+    "model": "Subaru",
+    "year": 2017,
+    "availability": "sold",
+    "profile_image": "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg",
+    "photos": [
+      "https://carnationautomart.com/storage/images/o6J5u9GEia4xvAmp4BbViS00fz5397eVNlWUx2O0.jpg",
+      "https://carnationautomart.com/storage/images/RCn5Ur0XG4HOpYFHJEzFFrROBuGlihDzDhWQDFXq.jpg",
+      "https://carnationautomart.com/storage/images/I2RyyaqItw2u1w8syQP4EVk3bqHNyk0esXOnitVD.jpg",
+      "https://carnationautomart.com/storage/images/ZMROa4HidfH6eny8UYsbmMOw8Oi7OSNXtl81RHKD.jpg"
+    ]
+  }
+Processing by CarsController#index as */*
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/cars_controller.rb:5:in `index'
+No serializer found for resource: #<Car id: 1, make: "XV", model: "Subaru", year: 2017, profile_image: "https://dashboard.kaiandkaro.com/media/vehicles/im...", availability: "sold", created_at: "2023-10-24 12:41:24.648310000 +0000", updated_at: "2023-10-24 12:41:24.648310000 +0000">
+[active_model_serializers]   [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."car_id" = ?[0m  [["car_id", 1]]
+[active_model_serializers]   ↳ app/models/car.rb:11:in `map'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Car::ActiveRecord_Relation (29.05ms)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 2.3ms | Allocations: 9281)
+
+
+  
+NoMethodError (undefined method `image_url' for #<Photo:0x00007f62b8e19660>
+Did you mean?  image_was):
+  
+app/models/car.rb:11:in `block in as_json'
+app/models/car.rb:11:in `map'
+app/models/car.rb:11:in `as_json'
+app/controllers/cars_controller.rb:5:in `index'
+Started GET "/cars" for 127.0.0.1 at 2023-10-24 15:49:57 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{  "image": "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg",
+"car_id": 1
+}
+
+
+
+{
+    "make": "XV",
+    "model": "Subaru",
+    "year": 2017,
+    "availability": "sold",
+    "profile_image": "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg",
+    "photos": [
+      "https://carnationautomart.com/storage/images/o6J5u9GEia4xvAmp4BbViS00fz5397eVNlWUx2O0.jpg",
+      "https://carnationautomart.com/storage/images/RCn5Ur0XG4HOpYFHJEzFFrROBuGlihDzDhWQDFXq.jpg",
+      "https://carnationautomart.com/storage/images/I2RyyaqItw2u1w8syQP4EVk3bqHNyk0esXOnitVD.jpg",
+      "https://carnationautomart.com/storage/images/ZMROa4HidfH6eny8UYsbmMOw8Oi7OSNXtl81RHKD.jpg"
+    ]
+  }
+Processing by CarsController#index as */*
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/cars_controller.rb:5:in `index'
+No serializer found for resource: #<Car id: 1, make: "XV", model: "Subaru", year: 2017, profile_image: "https://dashboard.kaiandkaro.com/media/vehicles/im...", availability: "sold", created_at: "2023-10-24 12:41:24.648310000 +0000", updated_at: "2023-10-24 12:41:24.648310000 +0000">
+[active_model_serializers]   [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."car_id" = ?[0m  [["car_id", 1]]
+[active_model_serializers]   ↳ app/models/car.rb:11:in `map'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Car::ActiveRecord_Relation (10.47ms)
+Completed 200 OK in 25ms (Views: 20.9ms | ActiveRecord: 2.8ms | Allocations: 7124)
+
+
+Started POST "/cars" for 127.0.0.1 at 2023-10-24 15:50:24 +0300
+Processing by CarsController#create as */*
+  Parameters: {"make"=>"XV", "model"=>"Subaru", "year"=>2017, "availability"=>"sold", "profile_image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg", "photos"=>["https://carnationautomart.com/storage/images/o6J5u9GEia4xvAmp4BbViS00fz5397eVNlWUx2O0.jpg", "https://carnationautomart.com/storage/images/RCn5Ur0XG4HOpYFHJEzFFrROBuGlihDzDhWQDFXq.jpg", "https://carnationautomart.com/storage/images/I2RyyaqItw2u1w8syQP4EVk3bqHNyk0esXOnitVD.jpg", "https://carnationautomart.com/storage/images/ZMROa4HidfH6eny8UYsbmMOw8Oi7OSNXtl81RHKD.jpg"], "car"=>{"make"=>"XV", "model"=>"Subaru", "year"=>2017, "profile_image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg", "availability"=>"sold"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:22:in `create'
+  [1m[36mCar Create (0.6ms)[0m  [1m[32mINSERT INTO "cars" ("make", "model", "year", "profile_image", "availability", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["make", "XV"], ["model", "Subaru"], ["year", 2017], ["profile_image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg"], ["availability", "sold"], ["created_at", "2023-10-24 12:50:24.369130"], ["updated_at", "2023-10-24 12:50:24.369130"]]
+  ↳ app/controllers/cars_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (106.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:22:in `create'
+[active_model_serializers]   [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."car_id" = ?[0m  [["car_id", 2]]
+[active_model_serializers]   ↳ app/models/car.rb:11:in `map'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Car (3.07ms)
+Completed 200 OK in 120ms (Views: 3.7ms | ActiveRecord: 107.4ms | Allocations: 2649)
+
+
+Started POST "/cars" for 127.0.0.1 at 2023-10-24 15:50:39 +0300
+Processing by CarsController#create as */*
+  Parameters: {"make"=>"XV", "model"=>"Subaru", "year"=>2017, "availability"=>"available", "profile_image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg", "photos"=>["https://carnationautomart.com/storage/images/o6J5u9GEia4xvAmp4BbViS00fz5397eVNlWUx2O0.jpg", "https://carnationautomart.com/storage/images/RCn5Ur0XG4HOpYFHJEzFFrROBuGlihDzDhWQDFXq.jpg", "https://carnationautomart.com/storage/images/I2RyyaqItw2u1w8syQP4EVk3bqHNyk0esXOnitVD.jpg", "https://carnationautomart.com/storage/images/ZMROa4HidfH6eny8UYsbmMOw8Oi7OSNXtl81RHKD.jpg"], "car"=>{"make"=>"XV", "model"=>"Subaru", "year"=>2017, "profile_image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg", "availability"=>"available"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cars_controller.rb:22:in `create'
+  [1m[36mCar Create (0.5ms)[0m  [1m[32mINSERT INTO "cars" ("make", "model", "year", "profile_image", "availability", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["make", "XV"], ["model", "Subaru"], ["year", 2017], ["profile_image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg"], ["availability", "available"], ["created_at", "2023-10-24 12:50:39.432471"], ["updated_at", "2023-10-24 12:50:39.432471"]]
+  ↳ app/controllers/cars_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (87.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cars_controller.rb:22:in `create'
+[active_model_serializers]   [1m[36mPhoto Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."car_id" = ?[0m  [["car_id", 3]]
+[active_model_serializers]   ↳ app/models/car.rb:11:in `map'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Car (1.84ms)
+Completed 200 OK in 95ms (Views: 2.3ms | ActiveRecord: 87.8ms | Allocations: 2562)
+
+
+Started POST "/photos" for 127.0.0.1 at 2023-10-24 15:50:56 +0300
+Processing by PhotosController#create as */*
+  Parameters: {"image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg", "car_id"=>2, "photo"=>{"car_id"=>2, "image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mPhoto Create (0.4ms)[0m  [1m[32mINSERT INTO "photos" ("car_id", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["car_id", 2], ["image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"], ["created_at", "2023-10-24 12:50:56.835734"], ["updated_at", "2023-10-24 12:50:56.835734"]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (96.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Photo (0.26ms)
+Completed 200 OK in 109ms (Views: 1.1ms | ActiveRecord: 97.5ms | Allocations: 3011)
+
+
+Started POST "/photos" for 127.0.0.1 at 2023-10-24 15:50:59 +0300
+Processing by PhotosController#create as */*
+  Parameters: {"image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg", "car_id"=>2, "photo"=>{"car_id"=>2, "image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mPhoto Create (0.6ms)[0m  [1m[32mINSERT INTO "photos" ("car_id", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["car_id", 2], ["image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"], ["created_at", "2023-10-24 12:50:59.603441"], ["updated_at", "2023-10-24 12:50:59.603441"]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (101.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Photo (0.24ms)
+Completed 200 OK in 112ms (Views: 0.9ms | ActiveRecord: 102.3ms | Allocations: 2670)
+
+
+Started POST "/photos" for 127.0.0.1 at 2023-10-24 15:51:00 +0300
+Processing by PhotosController#create as */*
+  Parameters: {"image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg", "car_id"=>2, "photo"=>{"car_id"=>2, "image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mPhoto Create (0.5ms)[0m  [1m[32mINSERT INTO "photos" ("car_id", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["car_id", 2], ["image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"], ["created_at", "2023-10-24 12:51:00.075889"], ["updated_at", "2023-10-24 12:51:00.075889"]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (96.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Photo (0.46ms)
+Completed 200 OK in 109ms (Views: 1.5ms | ActiveRecord: 97.0ms | Allocations: 2675)
+
+
+Started POST "/photos" for 127.0.0.1 at 2023-10-24 15:51:00 +0300
+Processing by PhotosController#create as */*
+  Parameters: {"image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg", "car_id"=>2, "photo"=>{"car_id"=>2, "image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mPhoto Create (0.6ms)[0m  [1m[32mINSERT INTO "photos" ("car_id", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["car_id", 2], ["image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"], ["created_at", "2023-10-24 12:51:00.617758"], ["updated_at", "2023-10-24 12:51:00.617758"]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (153.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Photo (0.41ms)
+Completed 200 OK in 167ms (Views: 1.5ms | ActiveRecord: 154.1ms | Allocations: 2670)
+
+
+Started POST "/photos" for 127.0.0.1 at 2023-10-24 15:51:02 +0300
+Processing by PhotosController#create as */*
+  Parameters: {"image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg", "car_id"=>2, "photo"=>{"car_id"=>2, "image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mPhoto Create (0.6ms)[0m  [1m[32mINSERT INTO "photos" ("car_id", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["car_id", 2], ["image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"], ["created_at", "2023-10-24 12:51:02.295073"], ["updated_at", "2023-10-24 12:51:02.295073"]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (193.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Photo (0.28ms)
+Completed 200 OK in 206ms (Views: 1.0ms | ActiveRecord: 194.6ms | Allocations: 2674)
+
+
+Started POST "/photos" for 127.0.0.1 at 2023-10-24 15:51:06 +0300
+Processing by PhotosController#create as */*
+  Parameters: {"image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg", "car_id"=>3, "photo"=>{"car_id"=>3, "image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mPhoto Create (0.5ms)[0m  [1m[32mINSERT INTO "photos" ("car_id", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["car_id", 3], ["image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"], ["created_at", "2023-10-24 12:51:06.484914"], ["updated_at", "2023-10-24 12:51:06.484914"]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (97.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Photo (0.23ms)
+Completed 200 OK in 106ms (Views: 0.8ms | ActiveRecord: 98.3ms | Allocations: 2674)
+
+
+Started POST "/photos" for 127.0.0.1 at 2023-10-24 15:51:06 +0300
+Processing by PhotosController#create as */*
+  Parameters: {"image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg", "car_id"=>3, "photo"=>{"car_id"=>3, "image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mPhoto Create (0.4ms)[0m  [1m[32mINSERT INTO "photos" ("car_id", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["car_id", 3], ["image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"], ["created_at", "2023-10-24 12:51:06.840565"], ["updated_at", "2023-10-24 12:51:06.840565"]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (111.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Photo (0.29ms)
+Completed 200 OK in 120ms (Views: 0.9ms | ActiveRecord: 112.0ms | Allocations: 2670)
+
+
+Started POST "/photos" for 127.0.0.1 at 2023-10-24 15:51:07 +0300
+Processing by PhotosController#create as */*
+  Parameters: {"image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg", "car_id"=>3, "photo"=>{"car_id"=>3, "image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mPhoto Create (0.5ms)[0m  [1m[32mINSERT INTO "photos" ("car_id", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["car_id", 3], ["image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"], ["created_at", "2023-10-24 12:51:07.162555"], ["updated_at", "2023-10-24 12:51:07.162555"]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (88.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Photo (0.27ms)
+Completed 200 OK in 100ms (Views: 0.9ms | ActiveRecord: 88.9ms | Allocations: 2670)
+
+
+Started POST "/photos" for 127.0.0.1 at 2023-10-24 15:51:07 +0300
+Processing by PhotosController#create as */*
+  Parameters: {"image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg", "car_id"=>3, "photo"=>{"car_id"=>3, "image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mPhoto Create (0.5ms)[0m  [1m[32mINSERT INTO "photos" ("car_id", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["car_id", 3], ["image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"], ["created_at", "2023-10-24 12:51:07.385141"], ["updated_at", "2023-10-24 12:51:07.385141"]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (116.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Photo (0.6ms)
+Completed 200 OK in 130ms (Views: 1.8ms | ActiveRecord: 117.1ms | Allocations: 2670)
+
+
+Started POST "/photos" for 127.0.0.1 at 2023-10-24 15:51:07 +0300
+Processing by PhotosController#create as */*
+  Parameters: {"image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg", "car_id"=>3, "photo"=>{"car_id"=>3, "image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mPhoto Create (0.6ms)[0m  [1m[32mINSERT INTO "photos" ("car_id", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["car_id", 3], ["image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"], ["created_at", "2023-10-24 12:51:07.693239"], ["updated_at", "2023-10-24 12:51:07.693239"]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (100.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Photo (0.42ms)
+Completed 200 OK in 114ms (Views: 1.4ms | ActiveRecord: 101.2ms | Allocations: 2670)
+
+
+Started POST "/photos" for 127.0.0.1 at 2023-10-24 15:51:07 +0300
+Processing by PhotosController#create as */*
+  Parameters: {"image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg", "car_id"=>3, "photo"=>{"car_id"=>3, "image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mPhoto Create (0.4ms)[0m  [1m[32mINSERT INTO "photos" ("car_id", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["car_id", 3], ["image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"], ["created_at", "2023-10-24 12:51:07.881417"], ["updated_at", "2023-10-24 12:51:07.881417"]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (110.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Photo (0.25ms)
+Completed 200 OK in 120ms (Views: 0.9ms | ActiveRecord: 110.7ms | Allocations: 2670)
+
+
+Started POST "/photos" for 127.0.0.1 at 2023-10-24 15:51:11 +0300
+Processing by PhotosController#create as */*
+  Parameters: {"image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg", "car_id"=>1, "photo"=>{"car_id"=>1, "image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mCar Load (0.1ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mPhoto Create (0.5ms)[0m  [1m[32mINSERT INTO "photos" ("car_id", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["car_id", 1], ["image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"], ["created_at", "2023-10-24 12:51:11.591937"], ["updated_at", "2023-10-24 12:51:11.591937"]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (97.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Photo (0.28ms)
+Completed 200 OK in 106ms (Views: 1.0ms | ActiveRecord: 97.8ms | Allocations: 2670)
+
+
+Started POST "/photos" for 127.0.0.1 at 2023-10-24 15:51:11 +0300
+Processing by PhotosController#create as */*
+  Parameters: {"image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg", "car_id"=>1, "photo"=>{"car_id"=>1, "image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mPhoto Create (0.5ms)[0m  [1m[32mINSERT INTO "photos" ("car_id", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["car_id", 1], ["image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"], ["created_at", "2023-10-24 12:51:11.752655"], ["updated_at", "2023-10-24 12:51:11.752655"]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (126.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Photo (0.22ms)
+Completed 200 OK in 135ms (Views: 0.9ms | ActiveRecord: 127.3ms | Allocations: 2670)
+
+
+Started POST "/photos" for 127.0.0.1 at 2023-10-24 15:51:11 +0300
+Processing by PhotosController#create as */*
+  Parameters: {"image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg", "car_id"=>1, "photo"=>{"car_id"=>1, "image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mPhoto Create (0.5ms)[0m  [1m[32mINSERT INTO "photos" ("car_id", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["car_id", 1], ["image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"], ["created_at", "2023-10-24 12:51:11.972184"], ["updated_at", "2023-10-24 12:51:11.972184"]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (102.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Photo (0.29ms)
+Completed 200 OK in 112ms (Views: 1.2ms | ActiveRecord: 103.3ms | Allocations: 2670)
+
+
+Started POST "/photos" for 127.0.0.1 at 2023-10-24 15:51:12 +0300
+Processing by PhotosController#create as */*
+  Parameters: {"image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg", "car_id"=>1, "photo"=>{"car_id"=>1, "image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mCar Load (0.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mPhoto Create (0.6ms)[0m  [1m[32mINSERT INTO "photos" ("car_id", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["car_id", 1], ["image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"], ["created_at", "2023-10-24 12:51:12.164346"], ["updated_at", "2023-10-24 12:51:12.164346"]]
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (111.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/photos_controller.rb:21:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Photo (0.27ms)
+Completed 200 OK in 125ms (Views: 1.1ms | ActiveRecord: 112.4ms | Allocations: 2670)
+
+
+Started GET "/cars" for 127.0.0.1 at 2023-10-24 15:51:20 +0300
+Processing by CarsController#index as */*
+  Parameters: {"image"=>"https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg", "car_id"=>1, "car"=>{}}
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars"[0m
+  ↳ app/controllers/cars_controller.rb:5:in `index'
+No serializer found for resource: #<Car id: 1, make: "XV", model: "Subaru", year: 2017, profile_image: "https://dashboard.kaiandkaro.com/media/vehicles/im...", availability: "sold", created_at: "2023-10-24 12:41:24.648310000 +0000", updated_at: "2023-10-24 12:41:24.648310000 +0000">
+[active_model_serializers]   [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."car_id" = ?[0m  [["car_id", 1]]
+[active_model_serializers]   ↳ app/models/car.rb:11:in `map'
+[active_model_serializers]   [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."car_id" = ?[0m  [["car_id", 2]]
+[active_model_serializers]   ↳ app/models/car.rb:11:in `map'
+[active_model_serializers]   [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."car_id" = ?[0m  [["car_id", 3]]
+[active_model_serializers]   ↳ app/models/car.rb:11:in `map'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Car::ActiveRecord_Relation (11.57ms)
+Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 1.1ms | Allocations: 3194)
+
+
