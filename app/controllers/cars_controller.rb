@@ -2,7 +2,7 @@ class CarsController < ApplicationController
     # Index action to list all cars
     def index
       cars = Car.all
-      render json: cars, only: [:id, :make, :model, :year, :availability, :profile_image], methods: :photos_urls
+      render json: cars, only: [:id, :make, :model, :year, :availability, :profile_image], methods: :photos
     end
     # Show action to display a single car and its photos
     def show
