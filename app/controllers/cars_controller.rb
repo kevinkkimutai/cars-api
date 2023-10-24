@@ -7,7 +7,7 @@ class CarsController < ApplicationController
     # Show action to display a single car and its photos
     def show
       car = Car.find(params[:id])
-      render json: car
+      render json: car, only: [:id, :make, :model, :year, :availability, :profile_image], methods: :photos_urls
     end
   
     # New action to create a new car
