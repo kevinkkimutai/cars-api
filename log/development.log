@@ -57286,3 +57286,32 @@ No serializer found for resource: #<Car id: 1, make: "XV", model: "Subaru", year
 Completed 200 OK in 46ms (Views: 42.2ms | ActiveRecord: 5.1ms | Allocations: 9180)
 
 
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCar Create (48.6ms)[0m  [1m[32mINSERT INTO "cars" ("make", "model", "year", "profile_image", "availability", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["make", "XV"], ["model", "Subaru"], ["year", 2017], ["profile_image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg"], ["availability", "sold"], ["created_at", "2023-10-25 11:34:51.889169"], ["updated_at", "2023-10-25 11:34:51.889169"]]
+  [1m[36mTRANSACTION (241.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCar Create (0.4ms)[0m  [1m[32mINSERT INTO "cars" ("make", "model", "year", "profile_image", "availability", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["make", "XV"], ["model", "Subaru"], ["year", 2017], ["profile_image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg"], ["availability", "sold"], ["created_at", "2023-10-25 11:36:06.809093"], ["updated_at", "2023-10-25 11:36:06.809093"]]
+  [1m[36mTRANSACTION (151.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCar Create (0.4ms)[0m  [1m[32mINSERT INTO "cars" ("make", "model", "year", "profile_image", "availability", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["make", "Toyota"], ["model", "Camry"], ["year", 2020], ["profile_image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg"], ["availability", "sold"], ["created_at", "2023-10-25 11:45:55.606441"], ["updated_at", "2023-10-25 11:45:55.606441"]]
+  [1m[36mTRANSACTION (78.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCar Create (0.4ms)[0m  [1m[32mINSERT INTO "cars" ("make", "model", "year", "profile_image", "availability", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["make", "Honda"], ["model", "Civic"], ["year", 2021], ["profile_image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg"], ["availability", "available"], ["created_at", "2023-10-25 11:45:55.691171"], ["updated_at", "2023-10-25 11:45:55.691171"]]
+  [1m[36mTRANSACTION (93.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPhoto Create (0.4ms)[0m  [1m[32mINSERT INTO "photos" ("car_id", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["car_id", 1], ["image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg"], ["created_at", "2023-10-25 11:45:55.948164"], ["updated_at", "2023-10-25 11:45:55.948164"]]
+  [1m[36mTRANSACTION (92.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPhoto Create (0.4ms)[0m  [1m[32mINSERT INTO "photos" ("car_id", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["car_id", 1], ["image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"], ["created_at", "2023-10-25 11:45:56.048413"], ["updated_at", "2023-10-25 11:45:56.048413"]]
+  [1m[36mTRANSACTION (95.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCar Load (0.2ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPhoto Create (0.3ms)[0m  [1m[32mINSERT INTO "photos" ("car_id", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["car_id", 2], ["image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-20_at_11.45.04.jpeg"], ["created_at", "2023-10-25 11:45:56.150495"], ["updated_at", "2023-10-25 11:45:56.150495"]]
+  [1m[36mTRANSACTION (104.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPhoto Create (0.3ms)[0m  [1m[32mINSERT INTO "photos" ("car_id", "image", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["car_id", 2], ["image", "https://dashboard.kaiandkaro.com/media/vehicles/images/WhatsApp_Image_2023-09-19_at_20.41.10.jpeg"], ["created_at", "2023-10-25 11:45:56.259484"], ["updated_at", "2023-10-25 11:45:56.259484"]]
+  [1m[36mTRANSACTION (84.1ms)[0m  [1m[36mcommit transaction[0m
